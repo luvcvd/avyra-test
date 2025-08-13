@@ -4,14 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Avyra - Staff Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- BACKGROUND DECOR -->
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+
+  <!-- NAV -->
   <nav class="navbar">
-    <div class="nav-logo">Avyra</div>
+    <div class="logo">Avyra</div>
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">Accounts</a></li>
@@ -22,9 +28,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="glass hero-card">
-      <h1>Effortless Staff Management</h1>
-      <p>Control your Roblox group staff, workspaces, and logs — all from one modern platform.</p>
+    <div class="glass hero-card" data-aos="fade-up">
+      <h1>Effortless Roblox Staff Management</h1>
+      <p>Control your group’s staff, workspaces, and logs — all from one sleek platform.</p>
       <div class="hero-buttons">
         <button class="btn primary">Get Started</button>
         <button class="btn secondary">Learn More</button>
@@ -34,25 +40,25 @@
 
   <!-- FEATURES -->
   <section class="features">
-    <div class="glass feature-card">
-      <img src="assets/accounts.svg" alt="Accounts"/>
+    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="assets/accounts.svg" alt="Accounts">
       <h3>Accounts</h3>
-      <p>Manage user accounts securely with ease.</p>
+      <p>Secure account management for your entire team.</p>
     </div>
-    <div class="glass feature-card">
-      <img src="assets/workspaces.svg" alt="Workspaces"/>
+    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="assets/workspaces.svg" alt="Workspaces">
       <h3>Workspaces</h3>
-      <p>Organize group workspaces for better collaboration.</p>
+      <p>Collaborate efficiently in organized group workspaces.</p>
     </div>
-    <div class="glass feature-card">
-      <img src="assets/logs.svg" alt="Logs"/>
+    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="assets/logs.svg" alt="Logs">
       <h3>Activity Logs</h3>
-      <p>Track every action and maintain detailed records.</p>
+      <p>Track all actions and keep records automatically.</p>
     </div>
-    <div class="glass feature-card">
-      <img src="assets/settings.svg" alt="Settings"/>
+    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="400">
+      <img src="assets/settings.svg" alt="Settings">
       <h3>Settings</h3>
-      <p>Customize Avyra to suit your group’s exact needs.</p>
+      <p>Tailor Avyra to your group’s exact needs.</p>
     </div>
   </section>
 
@@ -72,5 +78,8 @@
     </div>
   </footer>
 
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
 </body>
 </html>
