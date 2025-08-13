@@ -1,18 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Avyra - Roblox Staff Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avyra - Roblox Staff Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  /* RESET & BASE */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+  body { background: linear-gradient(135deg,#f7faff,#ffffff); color:#1a1a1a; overflow-x:hidden; }
+
+  /* BACKGROUND BLOBS */
+  .blob { position:absolute; border-radius:50%; filter:blur(100px); z-index:-1; animation:float 12s infinite alternate; }
+  .blob1 { width:450px; height:450px; background:#4a90e2; top:-180px; left:-180px; }
+  .blob2 { width:400px; height:400px; background:#ff7e5f; bottom:-150px; right:-130px; }
+  @keyframes float { 0%{transform:translateY(0px);} 100%{transform:translateY(40px);} }
+
+  /* NAVIGATION */
+  nav { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 8%; background:rgba(255,255,255,0.5); backdrop-filter:blur(20px); border-bottom:1px solid rgba(255,255,255,0.2); position:relative; z-index:2; }
+  nav .logo { font-size:1.6rem; font-weight:800; }
+  nav ul { display:flex; list-style:none; gap:2rem; }
+  nav a { text-decoration:none; font-weight:600; color:#1a1a1a; transition:0.2s; }
+  nav a:hover { color:#4a90e2; }
+
+  /* HERO */
+  .hero { height:90vh; display:flex; justify-content:center; align-items:center; padding:0 8%; position:relative; z-index:1; }
+  .hero-card { max-width:650px; padding:3rem; text-align:center; background:rgba(255,255,255,0.35); backdrop-filter:blur(25px); border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.3); animation:fadeInUp 1s ease forwards; }
+  .hero-card h1 { font-size:3rem; font-weight:800; margin-bottom:1rem; }
+  .hero-card p { font-size:1.2rem; color:#555; margin-bottom:2rem; }
+  .hero-buttons { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+  .btn { padding:.9rem 2rem; border-radius:10px; border:none; font-weight:600; cursor:pointer; transition:all 0.2s; }
+  .primary { background:#4a90e2; color:white; }
+  .primary:hover { background:#357ABD; transform:translateY(-2px); }
+  .secondary { background:rgba(255,255,255,0.5); border:1px solid rgba(0,0,0,0.1); }
+  .secondary:hover { background:rgba(255,255,255,0.8); transform:translateY(-2px); }
+
+  /* FEATURES */
+  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2.5rem; padding:4rem 8%; }
+  .feature-card { padding:2.5rem 2rem; text-align:center; background:rgba(255,255,255,0.35); backdrop-filter:blur(25px); border-radius:20px; box-shadow:0 10px 35px rgba(0,0,0,0.08); border:1px solid rgba(255,255,255,0.3); animation:fadeInUp 1s ease forwards; }
+  .feature-card img { width:60px; margin-bottom:1rem; }
+  .feature-card h3 { font-size:1.4rem; margin-bottom:.5rem; }
+  .feature-card p { font-size:1rem; color:#555; }
+
+  /* FOOTER */
+  footer { text-align:center; padding:2.5rem 8%; background:rgba(255,255,255,0.5); backdrop-filter:blur(20px); border-top:1px solid rgba(255,255,255,0.3); position:relative; z-index:2; }
+  .footer-icons { margin-top:1rem; display:flex; justify-content:center; gap:1.8rem; }
+  .footer-icons img { width:32px; transition:transform 0.2s; cursor:pointer; }
+  .footer-icons img:hover { transform:scale(1.15); }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+
+  /* RESPONSIVE */
+  @media(max-width:768px){ .hero-card{padding:2rem;} .hero-card h1{font-size:2.2rem;} .features{padding:3rem 5%; gap:1.5rem;} }
+</style>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="navbar">
+
+  <!-- BACKGROUND BLOBS -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
     <div class="logo">Avyra</div>
-    <ul class="nav-links">
+    <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Accounts</a></li>
       <li><a href="#">Workspaces</a></li>
@@ -20,9 +72,9 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section class="hero">
-    <div class="glass hero-card" data-aos="fade-up">
+    <div class="hero-card">
       <h1>Effortless Roblox Staff Management</h1>
       <p>Manage your group’s staff, workspaces, and activity logs — all in one sleek platform.</p>
       <div class="hero-buttons">
@@ -32,43 +84,39 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- FEATURES SECTION -->
   <section class="features">
-    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="assets/accounts.svg" alt="Accounts"/>
+    <div class="feature-card">
+      <img src="assets/accounts.svg" alt="Accounts">
       <h3>Accounts</h3>
-      <p>Securely manage user accounts for your Roblox staff.</p>
+      <p>Securely manage your Roblox staff accounts.</p>
     </div>
-    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="assets/workspaces.svg" alt="Workspaces"/>
+    <div class="feature-card">
+      <img src="assets/workspaces.svg" alt="Workspaces">
       <h3>Workspaces</h3>
-      <p>Organize workspaces for different groups and projects.</p>
+      <p>Organize projects and groups efficiently.</p>
     </div>
-    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="300">
-      <img src="assets/logs.svg" alt="Activity Logs"/>
+    <div class="feature-card">
+      <img src="assets/logs.svg" alt="Activity Logs">
       <h3>Activity Logs</h3>
-      <p>Track staff activity and maintain detailed logs automatically.</p>
+      <p>Track all actions and maintain detailed records.</p>
     </div>
-    <div class="glass feature-card" data-aos="fade-up" data-aos-delay="400">
-      <img src="assets/settings.svg" alt="Settings"/>
+    <div class="feature-card">
+      <img src="assets/settings.svg" alt="Settings">
       <h3>Settings</h3>
-      <p>Customize Avyra to your group’s needs and preferences.</p>
+      <p>Customize Avyra to your group’s preferences.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer>
     <p>© 2025 Avyra. All rights reserved.</p>
     <div class="footer-icons">
-      <a href="https://discord.gg/yourinvite" target="_blank"><img src="assets/discord.svg" alt="Discord"/></a>
-      <a href="https://docs.avyra.com" target="_blank"><img src="assets/docs.svg" alt="Docs"/></a>
-      <a href="/support" target="_blank"><img src="assets/support.svg" alt="Support"/></a>
+      <img src="assets/discord.svg" alt="Discord">
+      <img src="assets/docs.svg" alt="Docs">
+      <img src="assets/support.svg" alt="Support">
     </div>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-  </script>
 </body>
 </html>
